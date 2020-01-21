@@ -144,6 +144,7 @@ public class ReactVideoView extends ScalableVideoView implements
     private boolean mUseNativeControls = false;
 
     public ReactVideoView(ThemedReactContext themedReactContext) {
+        Log.e("RAYMOND HERE ERROR")
         super(themedReactContext);
 
         mThemedReactContext = themedReactContext;
