@@ -339,6 +339,7 @@ class ReactExoplayerView extends FrameLayout implements
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Log.e('RAYMOND run')
                 if (player == null) {
                     TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
                     trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -371,6 +372,7 @@ class ReactExoplayerView extends FrameLayout implements
                 }
                 if (playerNeedsSource && srcUri != null) {
                     ArrayList<MediaSource> mediaSourceList = buildTextSources();
+                    Log.e('RAYMOND uri', srcUri)
                     MediaSource videoSource = buildMediaSource(srcUri, extension);
                     MediaSource mediaSource;
                     if (mediaSourceList.size() == 0) {
@@ -405,6 +407,7 @@ class ReactExoplayerView extends FrameLayout implements
     private MediaSource buildMediaSource(Uri uri, String overrideExtension) {
         int type = Util.inferContentType(!TextUtils.isEmpty(overrideExtension) ? "." + overrideExtension
                 : uri.getLastPathSegment());
+        Log.e('RAYMOND type', type)
         switch (type) {
             case C.TYPE_SS:
                 return new SsMediaSource.Factory(
